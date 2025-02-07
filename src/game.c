@@ -97,6 +97,12 @@ void change_pos(int target_index)
 void show_score(void)
 {
     char* score = malloc(128);
+
+    if (score == NULL) {
+        perror("malloc faied.\n");
+        exit(1);
+    }
+
     snprintf(score, 128, "score = %d\n", points);
 
     DrawText(score, WIDTH-150, 10, 25, RED);
